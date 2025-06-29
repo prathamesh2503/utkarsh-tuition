@@ -3,70 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assests/css/styles.css" /> <!-- link to css file -->
   <title>Home</title>
 </head>
 <body>
   <header>
-    <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo"> <!-- logo -->
-    <nav>
-      <a href="">Home</a>
-      <a href="">About Me</a>
-      <a href="">Contact Me</a>
-    </nav>
-    <button>Teacher Login</button>
-    <!-- Responsive Menu Button -->
-     <button>Menu</button>
+    <a href="index.html" id="logo-link">
+      <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
+    </a>
+    <div class="nav-login-wrapper">
+      <nav>
+          <a href="">Home</a>
+          <a href="">About Me</a>
+          <a href="">Achievements</a>
+          <a href="">Contact Me</a>
+      </nav>
+        <!-- Responsive Menu Button -->
+      <button id="nav-menu-btn">☰</button>
+      <button id="teacher-login-btn">Teacher Login</button>
+    </div>
+    
   </header>
+  
   <main>
     <!-- Hero Section -->
-    <section>
-      <img src="" alt="slide-image">
-      <video src=""></video>
+    <section class="carousal-wrapper">
+      <div class="carousal-content">
+        <img src="./assests/images/student-img-1.jpg" alt="slide-image" >
+        <video src="/assests/images/student-video.mp4" controls autoplay muted ></video>
+      </div>
     </section>
     <!-- About Me Section -->
-     <section>
-      <h1>About Me</h1>
-      <article>
-        <img src="" alt="photo of teacher">
-        <h3>Manisha Mhetre</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
-      </article>
-     </section>
-    <!-- My Mission Section -->
-     <section>
-      <h2>My Mission</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
-     </section>
-    <!-- My Journey Section -->
-      <section>
-      <h2>My Journey</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit</p>
-     </section>
+    <section  id="about-me-wrapper">
+        <h1>About Me</h1>
+        <article class="article-container">
+          <img src="./assests/images/teacher-image.jpg" alt="photo of teacher" id="teacher-image">
+          <div class="article-text">
+            <h3>Manisha Mhetre</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
+          </div>
+         
+        </article>
+      <!-- My Mission Section -->
+        <section>
+          <h2>My Mission</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
+        </section>
+      <!-- My Journey Section -->
+        <section>
+          <h2>My Journey</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit</p>
+        </section>
     <!-- Achievement Of Students -->
-      <section>
-        <h2>Achievement of Student</h2>
-        <img src="" alt="student-image">
-        <p>Student A</p>
-        <p>Percentage 80%</p>
+        <section>
+          <h2>Achievement of Student</h2>
+          <div class="student-container">
+            <div class="student-data">
+                <img src="./assests/images/student-img-2.jpg" alt="student-image" class="student-image">
+                <p>Student: A</p>
+                <p>Class: First</p>
+                <p>Percentage: 80%</p>
+            </div>
+            <div class="student-data">
+                <img src="./assests/images/student-img-2.jpg" alt="student-image" class="student-image">
+                <p>Student: B</p>
+                <p>Class: Second</p>
+                <p>Percentage: 70%</p>
+            </div>
+            <div class="student-data">
+                <img src="./assests/images/student-img-2.jpg" alt="student-image" class="student-image">
+                <p>Student: B</p>
+                <p>Class: Second</p>
+                <p>Percentage: 70%</p>
+            </div>
+          </div>
+        </section>
       </section>
+
+   
       <!-- Contact Me Section -->
-      <section>        
+    <section id="contact-me">        
       <h2>Contact Me</h2>
-      <form action="">
+      <form action="" id="contact-me-form">
         <label for="name">Name:</label>
         <input type="text" name="contact-name" id="contact-name" required>
-        <label for="email">Email:</label>
+        <label for="email">Email:</label> 
         <input type="email" name="contact-email" id="contact-email" required>
         <label for="message">Message:</label>
         <textarea name="meassage" id="contact-message" required></textarea>
-        <input type="submit" value="Send" requireds>
+        <button id="contact-me-button">Send Message</button>
       </form>
-     </section>
+    </section>
   </main>
-  <footer>
-    <p>copyright</p>
-    <!-- Bottom To Top Scroll Button -->
-     <button>scroll</button>
+   
+  <footer id="footer">
+      <p id="copyright-text">@copyrights</p>
+       <!-- Bottom To Top Scroll Button -->
+      <button id="scroll-to-top-btn">⬆️</button>
   </footer>
+ 
 </body>
 </html>

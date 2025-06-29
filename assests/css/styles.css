@@ -1,0 +1,283 @@
+/* Base mobile styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+p{
+  margin: 5px 0px;
+}
+
+/* Header */
+header{
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #cf6f6f;
+}
+
+#logo-link{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+
+}
+
+#site-logo{
+  width: 150px;
+  height: 50px;
+}
+
+.nav-login-wrapper{
+  width: 90vw;
+  display: flex;
+  justify-content:space-between;
+  align-self: center;
+
+}
+
+.nav-login-wrapper nav{
+  display: none;
+}
+
+
+#nav-menu-btn{
+cursor: pointer;
+border: 0px;
+border-radius: 3px;
+font-size: medium;
+}
+
+
+#teacher-login-btn{
+cursor: pointer;
+border: 0px;
+border-radius: 3px;
+font-size: medium;
+}
+
+
+/* Main */
+
+/* Hero Section */
+
+.carousal-wrapper {
+  overflow: hidden;
+  width: 100vw;
+}
+
+.carousal-content{
+  display: flex;
+  animation: scroll-left 10s ease-in-out infinite;
+}
+.carousal-content img, .carousal-content video {
+  width: 100vw;
+  flex-shrink: 0;
+  height: 50vh;
+}
+
+@keyframes scroll-left {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+/* About Me */
+#about-me-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
+}
+.article-container{
+  display: flex;
+  padding: 5px;
+}
+
+.article-text{
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+#teacher-image{
+  height: 50vh;
+  width: 70vw;
+}
+
+.student-container{
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100vw;
+}
+
+.student-data {
+  height: 80%;
+  width: 60%;
+  flex: 1 1 200px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+}
+
+.student-image{
+  height: 60%;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50px;
+}
+/* Contact Me Section */
+#achievement-section {
+  height: max-content;
+}
+
+#contact-me{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#contact-me-form{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.2rem;
+  row-gap: 1rem;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+#contact-me-button{
+  grid-column: 1/3;
+  margin-top: 10px;
+  width: 150px;
+  justify-self: center;
+}
+
+#footer{
+  margin-top: 50px;
+}
+
+#copyright-text{
+font-size: small;
+text-align: center;
+}
+
+#scroll-to-top-btn{
+position: fixed;
+left: 80vw;
+bottom: 20px; 
+border: none;
+font-size: larger;
+cursor: pointer;
+background-color: transparent;
+} 
+
+/* >=768px (Tablet) */
+
+@media (min-width: 768px) {
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+p{
+  margin: 5px 0px;
+}
+
+header{
+   display: flex;
+  flex-direction: column;
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #cf6f6f;
+}
+
+#nav-menu-btn{
+display: none;
+}
+
+.nav-login-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-login-wrapper nav{
+  display: block;
+  text-decoration: none;
+}
+.nav-login-wrapper nav a{
+  color: #f0f0f0;
+  text-decoration: none;
+  margin-left: 10px;
+
+}
+
+#teacher-login-btn{
+cursor: pointer;
+border: 0px;
+border-radius: 3px;
+font-size: 1rem;
+}
+
+.carousal-wrapper {
+  overflow: hidden;
+  width: 100vw;
+}
+
+.carousal-content{
+  display: flex;
+  animation: scroll-left 10s ease-in-out infinite;
+}
+
+.carousal-content img, .carousal-content video {
+  width: 100vw;
+  flex-shrink: 0;
+  height: 80vh;
+}
+
+@keyframes scroll-left {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+/* About Me */
+
+#teacher-image{
+  height: 40vh;
+  width: 20vw;
+}
+
+}
+
+/* >=1024px (Desxtop) */
+
