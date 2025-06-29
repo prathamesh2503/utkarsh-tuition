@@ -11,3 +11,9 @@
 ### Added
 
 - HTML5 pages layout created.
+
+## [v0.3.0] - 2025-06-29
+
+### Added
+
+- Home page styling done with css
