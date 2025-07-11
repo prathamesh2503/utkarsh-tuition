@@ -1,21 +1,60 @@
 /* Base mobile styles */
-
-
 /* == Home Page == */
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0px;
+  padding: 0px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
 
 p{
   margin: 5px 0px;
 }
 
-.nav-login-wrapper{
-  width: 90vw;
-  display: flex;
-  justify-content:space-between;
-  align-self: center;
 
+/* Header */
+#main-header {
+  position: relative;
+  /* padding-top: 50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #cf6f6f;
 }
 
-.nav-login-wrapper nav{
+#logo-container{
+  position: absolute;
+  top: 10px;
+}
+
+#site-logo{
+  width: 150px;
+  height: 50px;
+}
+
+.nav-button{
+  margin-top: 70px;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav-links-container .nav-link{
   display: none;
 }
 
@@ -64,7 +103,7 @@ font-size: medium;
 }
 
 /* About Me */
-#about-me-wrapper{
+#about{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,12 +120,22 @@ font-size: medium;
 .article-text{
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 20px;
 }
 
+
+
 #teacher-image{
-  height: 50vh;
+  height: 40vh;
   width: 70vw;
+}
+
+/* Achievement Section */
+
+#achievement{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .student-container{
@@ -155,6 +204,7 @@ text-align: center;
 }
 
 #scroll-to-top-btn{
+display: none;
 position: fixed;
 left: 80vw;
 bottom: 20px; 
@@ -163,6 +213,8 @@ font-size: larger;
 cursor: pointer;
 background-color: transparent;
 } 
+
+
 
 /* >=768px (Tablet) */
 
@@ -179,14 +231,34 @@ p{
   margin: 5px 0px;
 }
 
-header{
-   display: flex;
+#main-header {
+  position: relative;
+  display: flex;
   flex-direction: column;
-  height: 100px;
+  align-items: center;
+  height: 120px;
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: #cf6f6f;
+}
+
+.nav-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#nav-links-container{
+  position: absolute;
+  top:70px;
+  left: 20px;
+  display: flex;
+}
+
+#nav-links-container .nav-link{
+  display: block;
+  margin: 0px 10px;
+  color: white;
 }
 
 #nav-menu-btn{
@@ -319,3 +391,17 @@ font-size: 1rem;
   justify-self: center;
   width: 200px;
 }
+
+/* Change when js executes */
+#main-header.expanded {
+  height: 250px;
+}
+
+#nav-links-container .showNavLinks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 12px 0px;
+  color: white;
+}
+

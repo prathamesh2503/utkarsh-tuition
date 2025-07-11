@@ -3,43 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assests/css/styles.css" /> <!-- link to css file -->
+  <link rel="stylesheet" href="./assests/css/styles.css"> <!-- link to css file -->
   <link rel="stylesheet" href="./assests/css/layout.css">
   <title>Home</title>
 </head>
 <body>
-  <header>
-    <a href="index.html" id="logo-link">
-      <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
-    </a>
-    <div class="nav-login-wrapper">
-      <nav>
-          <a href="">Home</a>
-          <a href="">About Me</a>
-          <a href="">Achievements</a>
-          <a href="">Contact Me</a>
-      </nav>
-        <!-- Responsive Menu Button -->
-      <button id="nav-menu-btn">☰</button>
-      <button id="teacher-login-btn">Teacher Login</button>
+  <header id="main-header">
+    <div id="logo-container">
+      <a href="/">
+        <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
+      </a>
     </div>
+    <div class="nav-button">
+        <button id="nav-menu-btn">☰</button>
+        <button id="teacher-login-btn" onclick="window.location.href='login.html'">Teacher Login</button>
+    </div>
+    <nav id="nav-links-container">
+      <a class="nav-link" href="#corousal">Home</a>
+      <a class="nav-link" href="#about">About Me</a>
+      <a class="nav-link" href="#achievement">Achievements</a>
+      <a  class="nav-link" href="#contact-me">Contact Me</a>
+    </nav> 
   </header>
   
   <main>
     <!-- Hero Section -->
-    <section class="carousal-wrapper">
-      <div class="carousal-content">
-        <img src="./assests/images/student-img-1.jpg" alt="slide-image" >
-        <video src="/assests/images/student-video.mp4" controls autoplay muted ></video>
-      </div>
-    </section>
+     <section id="corousal">
+        <div class="carousal-wrapper">
+          <div class="carousal-content">
+            <img src="./assests/images/student-img-1.jpg" alt="slide-image" >
+            <video src="/assests/images/student-video.mp4" controls autoplay muted ></video>
+          </div>
+        </div>
+     </section>
+    
     <!-- About Me Section -->
-    <section  id="about-me-wrapper">
+    <section  id="about">
         <h1>About Me</h1>
         <article class="article-container">
           <img src="./assests/images/teacher-image.jpg" alt="photo of teacher" id="teacher-image">
           <div class="article-text">
-            <h3>Manisha Mhetre</h3>
+            <h3>Mrs. A B C</h3>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
           </div>
          
@@ -54,8 +58,10 @@
           <h2>My Journey</h2>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit</p>
         </section>
+      </section>
+
     <!-- Achievement Of Students -->
-        <section>
+      <section id="achievement">
           <h2>Achievement of Student</h2>
           <div class="student-container">
             <div class="student-data">
@@ -89,10 +95,7 @@
                 <p>Percentage: 70%</p>
             </div>
           </div>
-        </section>
       </section>
-
-   
       <!-- Contact Me Section -->
     <section id="contact-me">        
       <h2>Contact Me</h2>
@@ -113,6 +116,6 @@
        <!-- Bottom To Top Scroll Button -->
       <button id="scroll-to-top-btn">⬆️</button>
   </footer>
- 
+ <script src="./assests/js/script.js"></script>
 </body>
 </html>
