@@ -9,37 +9,46 @@
   <title>Dashboard</title>
 </head>
 <body>
-  <header>
-    <a href="index.html" id="logo-link">
-      <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
-    </a>
-  </header>
+   <header id="main-header">
+      <div id="logo-container">
+        <a href="/">
+        <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
+        </a>
+      </div>
+    </header>
   <main class="dashboard-page">
     <h1>Dashboard</h1>
-    <section>
+    <section id="add-student">
       <h2 class="heading">Add Student</h2>
       <form action="" class="add-student-form">
         <label for="student-image">Student Photo</label>
-        <input type="file" src="" alt="" required>
+        <input type="file" src="" alt=""  class="input-box">
         <label for="student-name">Student Name</label>
-        <input type="text" name="student-name" id="student-name" required>
+        <input type="text" name="student-name" id="student-name"  class="input-box">
         <label for="student-name">Student Class</label>
-        <select name="student-class" id="student-class" required>
+        <select name="student-class" id="student-class"  class="input-box">
           <option value="">Select</option>
           <option value="first">First</option>
-          <option value="first">Second</option>
-          <option value="first">Third</option>
-          <option value="first">Fourth</option>
-          <option value="first">Fifth</option>
-          <option value="first">Sixth</option>
-          <option value="first">Seventh</option>
+          <option value="second">Second</option>
+          <option value="third">Third</option>
+          <option value="fourth">Fourth</option>
+          <option value="fifth">Fifth</option>
+          <option value="sixth">Sixth</option>
+          <option value="seventh">Seventh</option>
         </select>
         <label for="student-percentage">Student Percentage:</label>
-        <input type="number" id="percentage" min="0" max="100" step="0.01" placeholder="e.g 75.5" required>
+        <input type="number" id="percentage" min="0" max="100" step="0.01" placeholder="e.g 75.5" class="input-box" required>
+        <label for="achievement-year">Year</label>
+        <select name="achievement-year" id="achievement-year" class="input-box" >
+          <option value="">Select</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select>
         <button type="submit" class="student-submit-btn">Submit</button>
       </form>
     </section>
-    <section>
+    <section id="display-student">
       <h2 class="heading">Display Student</h2>
       <div class="student-container">
           <div class="student-data">
@@ -48,12 +57,6 @@
               <p>Class: First</p>
               <p>Percentage: 80%</p>
               <button class="deleter button"><i class="fas fa-trash"></i> Delete</button>
-          </div>
-          <div class="student-data">
-                <img src="./assests/images/student-img-2.jpg" alt="student-image" class="student-image">
-                <p>Student: B</p>
-                <p>Class: Second</p>
-                <p>Percentage: 70%</p>
           </div>
       </div>
     </section>

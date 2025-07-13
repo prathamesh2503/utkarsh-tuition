@@ -115,19 +115,18 @@ font-size: medium;
 .article-container{
   display: flex;
   padding: 5px;
+  margin: 10px;
 }
 
 .article-text{
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
 }
 
-
-
 #teacher-image{
-  height: 40vh;
-  width: 70vw;
+  height: 30vh;
+  width: 40vw;
 }
 
 /* Achievement Section */
@@ -329,9 +328,10 @@ font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 20px auto;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   height: 40vh;
+  width: 90%;
 }
 
 .login-form{
@@ -351,9 +351,11 @@ font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 15px auto;
+  padding: 0px 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  height: 50vh;
+  height: 70vh;
+  width: 90%;
 }
 
 .registration-form{
@@ -363,8 +365,13 @@ font-size: 1rem;
 }
 
 .register-btn{
+  border: 0px;
+  background-color: grey;
   grid-column: span 2;
-  margin: 10px 50px;
+  margin: 10px auto;
+  width: 150px;
+  height: 30px;
+  color: #f0f0f0;
 }
 
 /* Dashboard Page */
@@ -379,17 +386,33 @@ font-size: 1rem;
   text-align: center;
 }
 
+#add-student{
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  height: 60vh;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+}
+
 .add-student-form{
   display: grid;
   grid-template-columns: auto 1fr;
   gap:10px;
-  margin: 0px 10px;
+  padding: 0px 5px;
+}
+
+.input-box{
+  box-sizing: border-box;
+  width: 100%;;
 }
 
 .student-submit-btn{
   grid-column: span 2;
   justify-self: center;
-  width: 200px;
+  width: 100px;
 }
 
 /* Change when js executes */

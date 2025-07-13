@@ -17,7 +17,3 @@
 ### Added
 
 - All page styling done with css
-
-## [v0.3.1] - 2025-07-11
-
-- Home page javascript functionality added.

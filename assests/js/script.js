@@ -1,8 +1,6 @@
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
+  // navigation menu button click functionality 
   const menuBtn = document.getElementById("nav-menu-btn");
   const header = document.querySelector("#main-header");
   const navLinks = document.querySelectorAll(".nav-link")
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if(window.innerWidth <= 768)
   {
-      // console.log("nav link click");
     navLinks.forEach((item)=> {
     item.addEventListener("click", () => {
       header.classList.toggle("expanded");
@@ -27,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   }
 
-
+  // navigation link click functionality which results scroll to clicked section
   document.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", function (e) {
      e.preventDefault(); // to prevent default behaviour of browser & to control scrolling.
@@ -40,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
       const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
       // console.log(elementPosition);
-      
-
       const offsetPosition = elementPosition - headerHeight;
       window.scrollTo({
         top: offsetPosition,
@@ -51,23 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   })
 
- 
+  // Scroll to top button functionality
   const scrollToTopButton =  document.getElementById('scroll-to-top-btn')
   window.addEventListener('scroll', function () {
-  if(window.scrollY > 200){
-      scrollToTopButton.style.display = 'block';
-   } else {
-      scrollToTopButton.style.display = 'none';
-   }
+    if(window.scrollY > 200){
+        scrollToTopButton.style.display = 'block';
+    } else {
+        scrollToTopButton.style.display = 'none';
+    }
   })
 
 scrollToTopButton.addEventListener('click', () => {
-   
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  })
-
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
   })
   
+  // Registration Form Functionality
+
+console.log('Js Attached.')
+
 });
