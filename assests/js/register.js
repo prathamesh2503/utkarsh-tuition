@@ -103,13 +103,21 @@ registrationForm.addEventListener('submit', function (event) {
 
     if(password === confirmPassword)
     {
-      console.log("password matched");
-      
+      const formData = {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      }
+
+      localStorage.setItem('registrationData', JSON.stringify(formData));
+      window.location.href = 'login.html'
       return;
     } else {
-      console.log("Password not matched.");
+      alert("Password & confirm password not matched.");
       return;
-      
     }
 
 })

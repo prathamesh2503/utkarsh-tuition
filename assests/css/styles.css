@@ -415,6 +415,11 @@ font-size: 1rem;
   width: 100px;
 }
 
+.student-buttons{
+  display: flex;
+  gap: 5px;
+}
+
 /* Change when js executes */
 #main-header.expanded {
   height: 250px;
