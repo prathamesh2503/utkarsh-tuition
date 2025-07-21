@@ -1,6 +1,7 @@
+import {displayStudentDataOnHome} from "./display-student-home.js"
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", displayStudentDataOnHome)
-  // navigation menu button click functionality 
+
   const menuBtn = document.getElementById("nav-menu-btn");
   const header = document.querySelector("#main-header");
   const navLinks = document.querySelectorAll(".nav-link")
@@ -63,29 +64,12 @@ scrollToTopButton.addEventListener('click', () => {
     })
   })
   
+})
+  // navigation menu button click functionality 
+  
   // Registration Form Functionality
-
-  function displayStudentDataOnHome () {
-    const displayStudentData = JSON.parse(localStorage.getItem('displayData'))
-    const displyHomeStudentData = document.querySelector('#home-student-container')
-
-    if(!displayStudentData){
-      displyHomeStudentData.innerHTML = `
-      <div class="student-data">
-          <p>Achievements will be displayed soon!</p>
-      </div>`
-    } else {
-        displyHomeStudentData.innerHTML = `
-        <div class="student-data">
-            <img src="${displayStudentData.studentImage}">
-            <p>Student Name: ${displayStudentData.studentName}</p>
-            <p>Class: ${displayStudentData.studentClass}</p>
-            <p>Achievement Year: ${displayStudentData.achievementYear}</p>
-            <p>Percentage: ${displayStudentData.studentPercentage}%</p>
-        </div>`
-    }
-    
-  }
+displayStudentDataOnHome();
+ 
 
 
   

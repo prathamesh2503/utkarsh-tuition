@@ -122,20 +122,20 @@ const addStudentSubmitButton = document.querySelector('#add-student-form');
           const getStudentRecord = JSON.parse(localStorage.getItem('studentRecord'));
           const storeDisplayData = getStudentRecord
           localStorage.setItem('displayData', JSON.stringify(storeDisplayData));
-          displayStudentDataOnHome()
+          
         })
         
         const hideToHomeButton = document.querySelector('#hide-to-home-btn');
         hideToHomeButton.addEventListener('click', () => {
           localStorage.removeItem('displayData');
-          displayStudentDataOnHome()
+          
 
         })
 
         const deleteStudent = document.querySelector('#delete-std-btn');
         deleteStudent.addEventListener('click', () => {
           localStorage.removeItem('studentRecord');
-          displayStudentData();
+          
         })
       }
      
