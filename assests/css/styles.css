@@ -429,6 +429,11 @@ font-size: 1rem;
   gap: 5px;
 }
 
+#student-data-table{
+  margin: 10px 10px;
+  font-size: 15px;
+}
+
 /* Change when js executes */
 #main-header.expanded {
   height: 250px;

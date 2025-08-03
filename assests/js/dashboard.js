@@ -1,6 +1,5 @@
+let addedStudentData = JSON.parse(localStorage.getItem('addedStudentData') || '[]');
 document.addEventListener('DOMContentLoaded', displayStudentData())
-
-let addedStudentData = [];
 let showToHomeStudentData = [];
 let setUpdatedStudentData = [];
 const addStudentSubmitButton = document.querySelector('#add-student-form');   
@@ -91,9 +90,21 @@ const addStudentSubmitButton = document.querySelector('#add-student-form');
         achievementYear,
         studentPercentage,
       } 
+      // Check if student already exists in the database
+      if(!addedStudentData) {
+        addedStudentData = [];
+      }
+      if(addedStudentData.find(s => s.studentName === studentName && s.studentClass === studentClass && s.achievementYear === achievementYear && s.studentPercentage === studentPercentage))
+      { 
+        alert('Student already exists in the database.');
+        return;
+      }
       addedStudentData.push(studentData)   
       localStorage.setItem('addedStudentData', JSON.stringify(addedStudentData))
       displayStudentData();
+      showStudentDataInTable();
+
+      
     }
     reader.readAsDataURL(file);
     this.reset();   
@@ -103,17 +114,16 @@ const addStudentSubmitButton = document.querySelector('#add-student-form');
 // Display/Render student data on UI of dashboard from localStorage
 
 function displayStudentData() {
-  const getAddedStudentData = JSON.parse(localStorage.getItem('addedStudentData'));  
   const studentContainer = document.querySelector('#student-container');
   studentContainer.innerHTML = ''
-  if(getAddedStudentData === '' || getAddedStudentData === null || getAddedStudentData.length === 0 ){
+  if(addedStudentData === '' || addedStudentData === null || addedStudentData.length === 0 ){
       studentContainer.innerHTML = `
       <div class="student-data">
           <p>No Data Available</p>      
       </div>`
       
   } else {
-      getAddedStudentData.forEach((student, index) => {
+      addedStudentData.forEach((student) => {
       studentContainer.innerHTML += `
               <div class="student-data">
                   <img src="${student.Base64String}" class="student-image">
@@ -127,6 +137,7 @@ function displayStudentData() {
                     <button class="delete-std-btn" data-id=${student.id}><i class="fas fa-trash"></i> Delete</button>
                   </div>
               </div>`
+        
     // Delete student from dashboard and render updated data
       const deleteStudent = document.querySelectorAll('.delete-std-btn');
       deleteStudent.forEach((btn) => {
@@ -136,16 +147,16 @@ function displayStudentData() {
           {
             alert('Student is displayed on Home. First Hide the student.')
           } else {
-            const foundStudent = getAddedStudentData.find(s => s.id === studentId)
+            const foundStudent = addedStudentData.find(s => s.id === studentId)
 
             if (foundStudent) {
-              setUpdatedStudentData = getAddedStudentData.filter((student) => student.id !== foundStudent.id)
-              localStorage.setItem('addedStudentData', JSON.stringify(setUpdatedStudentData))
-              addedStudentData = setUpdatedStudentData
+              addedStudentData = addedStudentData.filter((student) => student.id !== foundStudent.id)
+              localStorage.setItem('addedStudentData', JSON.stringify(addedStudentData))
             } else {
               console.log('Not found Student data');
             }
             displayStudentData();
+            showStudentDataInTable();
           }
         })
       })
@@ -155,7 +166,7 @@ function displayStudentData() {
         showToHomeButton.forEach((btn)=>{
         btn.addEventListener('click', function () {
           const studentId = btn.getAttribute('data-id')
-          const foundStudent = getAddedStudentData.find(s => s.id === studentId);
+          const foundStudent = addedStudentData.find(s => s.id === studentId);
             if(showToHomeStudentData.find(s => s.id === studentId ))
             {
               alert('Student Already Exists');
@@ -184,7 +195,37 @@ function displayStudentData() {
            })
           })
       })
-    };                 
+  };
+  
+   showStudentDataInTable(); 
+        // Show student data in table format
+    function showStudentDataInTable() {
+      const studentDataTableBody = document.querySelector('#student-table-body')
+      let SrNo = 0;
+      studentDataTableBody.innerHTML = ''
+      
+      const rows = addedStudentData.map((student) => {
+        SrNo++;
+        return `
+          <tr>
+            <td>${SrNo}</td>
+            <td>${student.studentName}</td>
+            <td>${student.studentClass}</td>
+            <td>${student.achievementYear}</td>
+            <td>${student.studentPercentage}</td>
+        </tr>
+        `
+      });
+        studentDataTableBody.innerHTML = rows.join('')
+      const total = addedStudentData.reduce((sum, student) => sum + parseFloat(student.studentPercentage), 0);
+      const average = addedStudentData.length > 0 ? (total / addedStudentData.length).toFixed(2) : 0;
+      studentDataTableBody.innerHTML += `
+        <tr>
+          <td colspan="4">Average Percentage</td>
+          <td>${average}</td>
+        </tr>`
+    
+     }
 }
 
 
