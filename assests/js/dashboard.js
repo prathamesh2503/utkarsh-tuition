@@ -1,7 +1,10 @@
-document.addEventListener('DOMContentLoaded', displayStudentData)
+document.addEventListener('DOMContentLoaded', displayStudentData())
 
+let addedStudentData = [];
+let showToHomeStudentData = [];
+let setUpdatedStudentData = [];
 const addStudentSubmitButton = document.querySelector('#add-student-form');   
-
+// Add/Submit/Store Student data to localStorage 
   addStudentSubmitButton.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -75,70 +78,116 @@ const addStudentSubmitButton = document.querySelector('#add-student-form');
       alert('Percentage greater than 100 is not allowed.')
       studentPercentageInput.focus();
     }
+      
     
     const reader = new FileReader();
     reader.onload = function (event) {
       const Base64String = event.target.result;
         const studentData = {
-        studentImage: Base64String,
-        studentName: studentName,
-        studentClass: studentClass,
-        achievementYear: achievementYear,
-        studentPercentage: studentPercentage,
+        id: Date.now().toString() + Math.floor(Math.random()*1000).toString(),
+        Base64String,
+        studentName,
+        studentClass,
+        achievementYear,
+        studentPercentage,
       } 
-      localStorage.setItem('studentRecord', JSON.stringify(studentData))
+      addedStudentData.push(studentData)   
+      localStorage.setItem('addedStudentData', JSON.stringify(addedStudentData))
       displayStudentData();
-
     }
     reader.readAsDataURL(file);
-
+    this.reset();   
   })
     
-    function displayStudentData() {
-      const getStudentRecord = JSON.parse(localStorage.getItem('studentRecord'));
-      const studentContainer = document.querySelector('#student-container');
 
-      if(getStudentRecord === '' || getStudentRecord === null ){
-         studentContainer.innerHTML = `
-          <div class="student-data">
-              <p>No Data Available</p>      
-          </div>`
-      } else {
-        studentContainer.innerHTML = `
-        <div class="student-data">
-            <img src="${getStudentRecord.studentImage}" class="student-image">
-            <p>Student: ${getStudentRecord.studentName}</p>
-            <p>Class: ${getStudentRecord.studentClass}</p>
-            <p>Achievement Year: ${getStudentRecord.achievementYear}</p>
-            <p>Percentage: ${getStudentRecord.studentPercentage}%</p>
-            <div class="student-buttons">
-              <button id="show-to-home-btn">Show To Home</button>
-              <button id="hide-to-home-btn">Hide To Home</button>
-              <button class="deleter button" id="delete-std-btn"><i class="fas fa-trash"></i> Delete</button>
-            </div>
-        </div>`
-        const showToHomeButton = document.querySelector('#show-to-home-btn')
-        showToHomeButton.addEventListener('click', () => {
-          const getStudentRecord = JSON.parse(localStorage.getItem('studentRecord'));
-          const storeDisplayData = getStudentRecord
-          localStorage.setItem('displayData', JSON.stringify(storeDisplayData));
-          
+// Display/Render student data on UI of dashboard from localStorage
+
+function displayStudentData() {
+  const getAddedStudentData = JSON.parse(localStorage.getItem('addedStudentData'));  
+  const studentContainer = document.querySelector('#student-container');
+  studentContainer.innerHTML = ''
+  if(getAddedStudentData === '' || getAddedStudentData === null || getAddedStudentData.length === 0 ){
+      studentContainer.innerHTML = `
+      <div class="student-data">
+          <p>No Data Available</p>      
+      </div>`
+      
+  } else {
+      getAddedStudentData.forEach((student, index) => {
+      studentContainer.innerHTML += `
+              <div class="student-data">
+                  <img src="${student.Base64String}" class="student-image">
+                  <p>Student: ${student.studentName}</p>
+                  <p>Class: ${student.studentClass}</p>
+                  <p>Achievement Year: ${student.achievementYear}</p>
+                  <p>Percentage: ${student.studentPercentage}%</p>
+                  <div class="student-buttons">
+                    <button class="show-to-home-btn" data-id=${student.id}>Show To Home</button>
+                    <button class="hide-to-home-btn" data-id=${student.id}>Hide To Home</button>
+                    <button class="delete-std-btn" data-id=${student.id}><i class="fas fa-trash"></i> Delete</button>
+                  </div>
+              </div>`
+    // Delete student from dashboard and render updated data
+      const deleteStudent = document.querySelectorAll('.delete-std-btn');
+      deleteStudent.forEach((btn) => {
+        btn.addEventListener('click', function (){
+          const studentId = btn.getAttribute('data-id')
+          if(showToHomeStudentData.find(s => s.id === studentId))
+          {
+            alert('Student is displayed on Home. First Hide the student.')
+          } else {
+            const foundStudent = getAddedStudentData.find(s => s.id === studentId)
+
+            if (foundStudent) {
+              setUpdatedStudentData = getAddedStudentData.filter((student) => student.id !== foundStudent.id)
+              localStorage.setItem('addedStudentData', JSON.stringify(setUpdatedStudentData))
+              addedStudentData = setUpdatedStudentData
+            } else {
+              console.log('Not found Student data');
+            }
+            displayStudentData();
+          }
         })
-        
-        const hideToHomeButton = document.querySelector('#hide-to-home-btn');
-        hideToHomeButton.addEventListener('click', () => {
-          localStorage.removeItem('displayData');
-          
+      })
 
+    // Show student to home button functionality. 
+      const showToHomeButton = document.querySelectorAll('.show-to-home-btn')
+        showToHomeButton.forEach((btn)=>{
+        btn.addEventListener('click', function () {
+          const studentId = btn.getAttribute('data-id')
+          const foundStudent = getAddedStudentData.find(s => s.id === studentId);
+            if(showToHomeStudentData.find(s => s.id === studentId ))
+            {
+              alert('Student Already Exists');
+            }else{
+              showToHomeStudentData.push(foundStudent)
+              localStorage.setItem('showToHomeStudentData', JSON.stringify(showToHomeStudentData));
+              showToHomeStudentData = JSON.parse(localStorage.getItem('showToHomeStudentData'))
+            }
         })
+      }) 
 
-        const deleteStudent = document.querySelector('#delete-std-btn');
-        deleteStudent.addEventListener('click', () => {
-          localStorage.removeItem('studentRecord');
-          
-        })
-      }
-     
-    }
+    // Hide student from home button functionality. 
+      const hideToHomeButton = document.querySelectorAll('.hide-to-home-btn')
+          hideToHomeButton.forEach((btn)=> {
+          btn.addEventListener('click', function () {
+            const studentId = btn.getAttribute('data-id')              
+            showToHomeStudentData = JSON.parse(localStorage.getItem('showToHomeStudentData'))
+            const foundStudent = showToHomeStudentData.find(s => s.id === studentId)
+              if (foundStudent) {
+                showToHomeStudentData = showToHomeStudentData.filter((student)=>student.id !== foundStudent.id)
+                localStorage.setItem('showToHomeStudentData', JSON.stringify(showToHomeStudentData));
+                
+              } else {
+              alert('Student Not Found');
+              }
+           })
+          })
+      })
+    };                 
+}
 
+
+       
     
+      

@@ -1,25 +1,31 @@
  export function displayStudentDataOnHome () {
 
-    console.log('I am displayStudentDataOnHome function ');
-    
+    // console.log('I am displayStudentDataOnHome function ');
 
-    const displayStudentData = JSON.parse(localStorage.getItem('displayData'))
     const displyHomeStudentData = document.querySelector('#home-student-container')
-
-    if(!displayStudentData){
-      displyHomeStudentData.innerHTML = `
-      <div class="student-data">
-          <p>Achievements will be displayed soon!</p>
-      </div>`
-    } else {
+    
+    
+    const showToHomeStudentData = JSON.parse(localStorage.getItem('showToHomeStudentData'))
+    
+      if(showToHomeStudentData.length === 0){
         displyHomeStudentData.innerHTML = `
         <div class="student-data">
-            <img src="${displayStudentData.studentImage}">
-            <p>Student Name: ${displayStudentData.studentName}</p>
-            <p>Class: ${displayStudentData.studentClass}</p>
-            <p>Achievement Year: ${displayStudentData.achievementYear}</p>
-            <p>Percentage: ${displayStudentData.studentPercentage}%</p>
+            <p>Achievements will be displayed soon!</p>
         </div>`
-    }
+      }
+
+      showToHomeStudentData.forEach((student) => {
+        
+        displyHomeStudentData.innerHTML += `
+        <div class="student-data">
+            <img src="${student.Base64String}" class="student-image">
+            <p>Student Name: ${student.studentName}</p>
+            <p>Class: ${student.studentClass}</p>
+            <p>Achievement Year: ${student.achievementYear}</p>
+            <p>Percentage: ${student.studentPercentage}%</p>
+        </div>`
+        
+      });
+    
     
   }

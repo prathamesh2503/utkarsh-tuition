@@ -10,6 +10,7 @@ body {
   background-color: #f0f0f0;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 a{
@@ -159,7 +160,7 @@ font-size: medium;
 }
 
 .student-image{
-  height: 60%;
+  height: 120px;
   width: 150px;
   padding: 5px;
   border-radius: 50px;
@@ -195,6 +196,14 @@ font-size: medium;
 
 #footer{
   margin-top: 50px;
+}
+
+#info-table{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 15px 0px;
+  font-size: 15px;
 }
 
 #copyright-text{
@@ -431,5 +440,9 @@ font-size: 1rem;
   align-items: center;
   margin: 12px 0px;
   color: white;
+}
+
+.active-btn{
+  display: none;
 }
 

@@ -33,11 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetId = this.getAttribute('href').slice(1);
       const targetElement = document.getElementById(targetId);
       const headerHeight = document.getElementById('main-header').offsetHeight;
-      // console.log(targetElement.getBoundingClientRect().top)
-      // console.log(window.scrollY);
-      
       const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-      // console.log(elementPosition);
       const offsetPosition = elementPosition - headerHeight;
       window.scrollTo({
         top: offsetPosition,
@@ -65,9 +61,9 @@ scrollToTopButton.addEventListener('click', () => {
   })
   
 })
-  // navigation menu button click functionality 
   
-  // Registration Form Functionality
+  
+  // Onpress showToHome button display data on home page
 displayStudentDataOnHome();
  
 
