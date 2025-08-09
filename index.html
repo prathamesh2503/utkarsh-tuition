@@ -1,123 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assests/css/styles.css"> <!-- link to css file -->
-  <link rel="stylesheet" href="./assests/css/layout.css">
-  <title>Home</title>
-</head>
-<body>
-  <header id="main-header">
-    <div id="logo-container">
-      <a href="/">
-        <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
-      </a>
-    </div>
-    <div class="nav-button">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assests/css/styles.css" />
+    <!-- link to css file -->
+    <link rel="stylesheet" href="./assests/css/layout.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header id="main-header">
+      <div id="logo-container">
+        <a href="/">
+          <img
+            src="./assests/images/utkarsh-tuition-logo.png"
+            alt="logo"
+            id="site-logo"
+          />
+          <!-- logo -->
+        </a>
+      </div>
+      <div class="nav-button">
         <button id="nav-menu-btn">☰</button>
-        <button id="teacher-login-btn" onclick="window.location.href='login.html'">Teacher Login</button>
-    </div>
-    <nav id="nav-links-container">
-      <a class="nav-link" href="#corousal">Home</a>
-      <a class="nav-link" href="#about">About Me</a>
-      <a class="nav-link" href="#achievement">Achievements</a>
-      <a  class="nav-link" href="#contact-me">Contact Me</a>
-    </nav> 
-  </header>
-  
-  <main>
-    <!-- Hero Section -->
-     <section id="corousal">
+        <button
+          id="teacher-login-btn"
+          onclick="window.location.href='login.html'"
+        >
+          Teacher Login
+        </button>
+      </div>
+      <nav id="nav-links-container">
+        <a class="nav-link" href="#corousal">Home</a>
+        <a class="nav-link" href="#about">About Me</a>
+        <a class="nav-link" href="#achievement">Achievements</a>
+        <a class="nav-link" href="#blogs">Blogs</a>
+        <a class="nav-link" href="#contact-me">Contact Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="corousal">
         <div class="carousal-wrapper">
           <div class="carousal-content">
-            <img src="./assests/images/student-img-1.jpg" alt="slide-image" >
-            <video src="/assests/images/student-video.mp4" controls autoplay muted ></video>
+            <img src="./assests/images/student-img-1.jpg" alt="slide-image" />
+            <img src="./assests/images/student-img-1.jpg" alt="slide-image" />
           </div>
         </div>
-     </section>
-    
-    <!-- About Me Section -->
-    <section  id="about">
+      </section>
+
+      <!-- About Me Section -->
+      <section id="about">
         <h1>About Me</h1>
         <article class="article-container">
-          <img src="./assests/images/teacher-image.jpg" alt="photo of teacher" id="teacher-image">
+          <img
+            src="./assests/images/teacher-image.jpg"
+            alt="photo of teacher"
+            id="teacher-image"
+          />
           <div class="article-text">
             <h4>Mrs. A B C</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Adipisci, impedit?
+            </p>
           </div>
         </article>
-      <!-- My Mission Section -->
+        <!-- My Mission Section -->
         <section>
           <h2>My Mission</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit?</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci,
+            impedit?
+          </p>
         </section>
-      <!-- My Journey Section -->
+        <!-- My Journey Section -->
         <section>
           <h2>My Journey</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, impedit</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci,
+            impedit
+          </p>
         </section>
       </section>
 
-    <!-- Achievement Of Students -->
+      <!-- Achievement Of Students -->
       <section id="achievement">
-          <h2>Achievement of Student</h2>
-          <div class="student-container" id="home-student-container">
-            
-          </div>
+        <h2>Achievement of Student</h2>
+        <div class="student-container" id="home-student-container"></div>
+      </section>
+      <!-- Blogs Section -->
+      <section id="blogs">
+        <h2>Blogs</h2>
+        <div class="blog-container">
+          <!-- blogs from api -->
+        </div>
       </section>
       <!-- Contact Me Section -->
-    <section id="contact-me">        
-      <h2>Contact Me</h2>
-      <form action="" id="contact-me-form">
-        <label for="name">Name:</label>
-        <input type="text" name="contact-name" id="contact-name" required>
-        <label for="email">Email:</label> 
-        <input type="email" name="contact-email" id="contact-email" required>
-        <label for="message">Message:</label>
-        <textarea name="meassage" id="contact-message" required></textarea>
-        <button id="contact-me-button">Send Message</button>
-      </form>
-    </section>
-  </main>
-   
-  <footer id="footer">
-    <div id="info-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Quick Links</th>
-            <th>Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              Home
-            </td>
-            <td>Terms of Service</td>
-          </tr>
-          <tr>
-            <td>
-              Gallary
-            </td>
-            <td>Privacy Policy</td>
-          </tr>
-          <tr>
-            <td>
-               About Me
-            </td>
-            <td>Cookie Setting</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-      <p id="copyright-text">@copyrights</p>
-       <!-- Bottom To Top Scroll Button -->
-      <button id="scroll-to-top-btn">⬆️</button>
-  </footer>
- <script type="module" src="./assests/js/script.js"></script>
+      <section id="contact-me">
+        <h2>Contact Me</h2>
+        <form action="" id="contact-me-form">
+          <label for="name">Name:</label>
+          <input type="text" name="contact-name" id="contact-name" required />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="contact-email"
+            id="contact-email"
+            required
+          />
+          <label for="message">Message:</label>
+          <textarea name="meassage" id="contact-message" required></textarea>
+          <button id="contact-me-button">Send Message</button>
+        </form>
+      </section>
+    </main>
 
-</body>
+    <footer id="footer">
+      <div id="info-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Quick Links</th>
+              <th>Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Home</td>
+              <td>Terms of Service</td>
+            </tr>
+            <tr>
+              <td>Gallary</td>
+              <td>Privacy Policy</td>
+            </tr>
+            <tr>
+              <td>About Me</td>
+              <td>Cookie Setting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p id="copyright-text">@copyrights</p>
+      <!-- Bottom To Top Scroll Button -->
+      <button id="scroll-to-top-btn">⬆️</button>
+    </footer>
+    <script type="module" src="./assests/js/script.js"></script>
+  </body>
 </html>

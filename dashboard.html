@@ -1,65 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assests/css/styles.css" /> <!-- link to css file -->
-  <link rel="stylesheet" href="./assests/css/layout.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Dashboard</title>
-</head>
-<body>
-   <header id="main-header">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assests/css/styles.css" />
+    <!-- link to css file -->
+    <link rel="stylesheet" href="./assests/css/layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <header id="main-header">
       <div id="logo-container">
         <a href="/">
-        <img src="./assests/images/utkarsh-tuition-logo.png" alt="logo" id="site-logo"> <!-- logo -->
+          <img
+            src="./assests/images/utkarsh-tuition-logo.png"
+            alt="logo"
+            id="site-logo"
+          />
+          <!-- logo -->
         </a>
       </div>
     </header>
-  <main class="dashboard-page">
-    <h1>Dashboard</h1>
-    <section id="add-student">
-      <h2 class="heading">Add Student</h2>
-      <form action="" class="add-student-form" id="add-student-form">
-        <label for="student-image">Student Photo</label>
-        <input type="file" src="" alt="" class="input-box" id="student-image" accept="image/*">
-        <label for="student-name">Student Name</label>
-        <input type="text" name="student-name" id="student-name"  class="input-box">
-        <label for="student-name">Student Class</label>
-        <select name="student-class" id="student-class" class="input-box">
-          <option value="">Select</option>
-          <option value="first">First</option>
-          <option value="second">Second</option>
-          <option value="third">Third</option>
-          <option value="fourth">Fourth</option>
-          <option value="fifth">Fifth</option>
-          <option value="sixth">Sixth</option>
-          <option value="seventh">Seventh</option>
-        </select>
-        <label for="achievement-year">Achievement Year</label>
-        <select name="achievement-year" id="achievement-year" class="input-box">
-          <option value="">Select</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
-        </select>
-        <label for="student-percentage">Student Percentage</label>
-        <input type="number" id="percentage" min="0" step="0.01" placeholder="e.g 75.5" class="input-box">
-        <input type="submit" class="student-submit-btn" id="add-student-submit-btn" value="submit"/>
-      </form>
-    </section>
-    <section id="display-student">
-      <h2 class="heading">Display Student</h2>
-      <div class="student-container" id="student-container">
+    <main class="dashboard-page">
+      <h1>Dashboard</h1>
+      <section id="add-student">
+        <h2 class="heading">Add Student</h2>
+        <form action="" class="add-student-form" id="add-student-form">
+          <label for="student-image">Student Photo</label>
+          <input
+            type="file"
+            src=""
+            alt=""
+            class="input-box"
+            id="student-image"
+            accept="image/*"
+          />
+          <label for="student-name">Student Name</label>
+          <input
+            type="text"
+            name="student-name"
+            id="student-name"
+            class="input-box"
+          />
+          <label for="student-name">Student Class</label>
+          <select name="student-class" id="student-class" class="input-box">
+            <option value="">Select</option>
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">Third</option>
+            <option value="fourth">Fourth</option>
+            <option value="fifth">Fifth</option>
+            <option value="sixth">Sixth</option>
+            <option value="seventh">Seventh</option>
+          </select>
+          <label for="achievement-year">Achievement Year</label>
+          <select
+            name="achievement-year"
+            id="achievement-year"
+            class="input-box"
+          >
+            <option value="">Select</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+          <label for="student-percentage">Student Percentage</label>
+          <input
+            type="number"
+            id="percentage"
+            min="0"
+            step="0.01"
+            placeholder="e.g 75.5"
+            class="input-box"
+          />
+          <input
+            type="submit"
+            class="student-submit-btn"
+            id="add-student-submit-btn"
+            value="submit"
+          />
+        </form>
+      </section>
+      <section id="display-student">
+        <h2 class="heading">Display Student</h2>
+        <div class="student-container" id="student-container">
           <!-- Data From JavaScript -->
-      </div>
-    </section>
-    <section id="display-student-report">
-      <h2 class="heading">Display Student Report</h2>
-      <div id="student-report-container">
+        </div>
+      </section>
+      <section id="display-student-report">
+        <h2 class="heading">Display Student Report</h2>
+        <div id="student-report-container">
           <!-- Data From JavaScript -->
-           <h5 class="heading">Total number of students list</h5>
-           <table border="1" id="student-data-table">
+          <h5 class="heading">Total number of students list</h5>
+          <table border="1" id="student-data-table">
             <thead>
               <tr>
                 <td>Sr No</td>
@@ -69,14 +106,11 @@
                 <td>Percentage</td>
               </tr>
             </thead>
-            <tbody id="student-table-body">
-              
-            </tbody>
-           </table>
-           
-      </div>
-    </section>
-  </main>
-  <script type="module" src="./assests/js/dashboard.js"></script>  
-</body>
+            <tbody id="student-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./assests/js/dashboard.js"></script>
+  </body>
 </html>
